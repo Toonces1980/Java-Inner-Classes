@@ -5,6 +5,6 @@ package pajerowski.tony;
  */
 public enum Protocol {
 
-    HTTP, FTP, TCP, SSH
+    HTTP, FTP, TCP
 
 }

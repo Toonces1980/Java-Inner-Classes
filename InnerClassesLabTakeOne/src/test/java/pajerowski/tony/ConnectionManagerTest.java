@@ -8,31 +8,35 @@ import org.junit.Test;
  * Created by anthonypajerowski on 2/2/17.
  */
 public class ConnectionManagerTest {
-    ConnectionManager connectionManager;
+    Connection connection;
+    String ipAddress = "128.0.0.0";
+    int port = 1000;
+    Protocol protocol = Protocol.HTTP;
 
     @Before
     public void setup(){
-        connectionManager = new ConnectionManager();
+
+        connection = new ConnectionManager().getConnection(ipAddress, port, protocol);
     }
 
     @Test
     public void getIPTest() {
         String expected = "";
-        String actual = connectionManager.getIP();
+        String actual = connection.getIP();
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void getProtocolTest() {
-        Protocol expected = null;
-        Protocol actual = connectionManager.getProtocol();
+        Class expected = null;
+        Class actual = connection.getProtocol().getClass();
         Assert.assertEquals(expected,actual);
     }
 
     @Test
     public void getPortTest() {
         Integer expected = 0;
-        Integer actual = connectionManager.getPort();
+        Integer actual = connection.getPort();
         Assert.assertEquals(expected, actual);
     }
 
